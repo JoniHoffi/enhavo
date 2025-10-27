@@ -35,6 +35,7 @@ class EnhavoTranslationExtension extends AbstractResourceExtension implements Pr
         $container->setParameter('enhavo_translation.translator.default_access', $config['translator']['default_access']);
         $container->setParameter('enhavo_translation.form.default_access', $config['form']['default_access']);
         $container->setParameter('enhavo_translation.provider', $config['provider']);
+        $container->setParameter('enhavo_translation.deepl.api_key', $config['translate']['client']);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services/translator.yaml');

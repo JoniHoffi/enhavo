@@ -1,0 +1,14 @@
+services:
+    Enhavo\Bundle\TranslationBundle\Endpoint\TranslateEndpointType:
+        public: true
+        arguments:
+            - '@Enhavo\Bundle\TranslationBundle\Translate\TranslateManager'
+            - '@Enhavo\Component\Metadata\MetadataRepository'
+            - '@Enhavo\Bundle\AppBundle\Resource\ResourceManager'
+            - '@Doctrine\ORM\EntityManagerInterface'
+    Enhavo\Bundle\TranslationBundle\Translate\TranslateManager:
+        public: true
+        arguments:
+            - '@Enhavo\Bundle\TranslationBundle\Translation\TranslationManager'
+            - '%enhavo_translation.default_locale%'
+            - '@Enhavo\Bundle\RoutingBundle\Repository\RouteRepository'
